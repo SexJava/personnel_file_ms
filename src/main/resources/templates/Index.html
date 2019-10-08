@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <!--<script src="/static/jquery-3.4.1/jquery-3.4.1/jquery-3.4.1.js" type="text/javascript"/>-->
+</head>
+<body>
+    <form action="Login" method="post">
+        普通用户<input type="radio" th:name="role" th:value="0"/>
+        管理员<input type="radio" th:name="role" th:value="1"/><br>
+        用户名:<input type="text" th:name="name"/><br/>
+        密码:<input type="password" th:name="pwd"/><br/>
+        <input type="submit" value="登录">
+    </form>
+</body>
+</html>

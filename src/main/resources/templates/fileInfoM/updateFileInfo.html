@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3 th:utext="'用户编号:'+${userId}"></h3>
+<h3 th:utext="'用户姓名:'+${userName}"></h3>
+<form action="/adm/updateFileInfo" method="post" enctype="multipart/form-data">
+    <input type="hidden" th:name="fileId" th:value="${fileId}" /><br/>
+    劳工合同附件:<input type="file" name="laodongFile" accept="image/*">
+    培训合同附件:<input type="file" name="peixunFile" accept="image/*">
+    保密协议附件:<input type="file" name="baomiFile" accept="image/*">
+    <input type="submit" value="确认提交"/>
+</form>
+</body>
+</html>

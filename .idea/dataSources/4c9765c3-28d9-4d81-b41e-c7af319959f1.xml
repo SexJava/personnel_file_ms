@@ -958,34 +958,65 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="244" parent="12" name="adminfo"/>
-    <column id="245" parent="244" name="admId">
+    <table id="245" parent="12" name="userinfo"/>
+    <column id="246" parent="244" name="admId">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="244" name="admName">
+    <column id="247" parent="244" name="admName">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="244" name="admPwd">
+    <column id="248" parent="244" name="admPwd">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="244" name="admRole">
+    <column id="249" parent="244" name="admRole">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="249" parent="244" name="PRIMARY">
+    <key id="250" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>admId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="251" parent="245" name="userId">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="252" parent="245" name="userName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="253" parent="245" name="userPwd">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="254" parent="245" name="userRole">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="255" parent="245" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userId</ColNames>
       <Primary>1</Primary>
     </key>
   </database-model>

@@ -9,6 +9,15 @@ public class userInfo {
     private String userName;
     private String userPwd;
     private Integer userRole;
+    private Double userSal;
+
+    public Double getUserSal() {
+        return userSal;
+    }
+
+    public void setUserSal(Double userSal) {
+        this.userSal = userSal;
+    }
 
     @Override
     public String toString() {

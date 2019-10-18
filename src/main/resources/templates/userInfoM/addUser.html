@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="addUser" method="post">
+    普通用户:<input type="radio" th:name="role" th:value="0"/>管理员:<input type="radio" th:name="role" th:value="1"/><br/>
+    用户名:<input type="text" th:name="name" />
+    密码:<input type="password" th:name="pwd"/>
+    <input type="submit" value="确认"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 style="text-align: center">用户列表</h1>
+<table align="center" border="1px">
+    <tr>
+        <td>comId</td>
+        <td>comName</td>
+
+
+    </tr>
+    <tr th:each="coms : ${pageInfo.list}">
+
+        <td th:text="${coms.comId}"></td>
+        <td th:text="${coms.comName}"></td>
+
+    </tr>
+</table>
+<div style="text-align: center; margin-top: 50px;">
+    <a th:href="@{/adm/findAllComInfo(start = 1)}">【首页】</a>
+    <a th:href="@{/adm/findAllComInfo(start = ${pageInfo.pageNum - 1 })}">【上一页】</a>
+    <a th:href="@{/adm/findAllComInfo(start = ${pageInfo.pageNum + 1 })}">【下一页】</a>
+    <a th:href="@{/adm/findAllComInfo(start=${pageInfo.pages})}">【尾页】</a>
+</div>
+<a href="/adm/toAdmMain">
+    <input type="button" value="返回主页面"/>
+</a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3 th:utext="'用户编号:'+${userFileInfo.userId}"></h3>
+<h8>劳动合同</h8>
+<img th:src="'fileUpload'+'\\'+${userFileInfo.laodongFile}" >
+<h8>培训合同</h8>
+<img th:src="'fileUpload'+'\\'+${userFileInfo.peixunFile}" >
+<h9>保密协议</h9>
+<img th:src="'fileUpload'+'\\'+${userFileInfo.baomiFile}" >
+</body>
+</html>

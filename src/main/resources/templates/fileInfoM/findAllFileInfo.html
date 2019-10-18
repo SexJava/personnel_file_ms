@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 style="text-align: center">合同列表</h1>
+<table align="center" border="1px">
+    <tr>
+        <td>fileId</td>
+        <td>userId</td>
+        <td>userName</td>
+        <td>laodongFile</td>
+        <td>peixunFile</td>
+        <td>baomiFile</td>
+        <td>opreate</td>
+
+
+    </tr>
+    <tr th:each="files : ${pageInfo.list}">
+
+        <td th:text="${files.fileId}"></td>
+        <td th:text="${files.userId}"></td>
+        <td th:text="${files.userName}"></td>
+        <td th:text="${files.laodongFile}"></td>
+        <td th:text="${files.peixunFile}"></td>
+        <td th:text="${files.baomiFile}"></td>
+        <td>
+            <a th:href="@{/adm/toUpdateFileInfo(fileId = ${files.fileId},userId = ${files.userId},userName = ${files.userName})}">修改合同附件</a>
+
+        </td>
+
+    </tr>
+</table>
+<div style="text-align: center; margin-top: 50px;">
+    <a th:href="@{/adm/findAllFileInfo(start = 1)}">【首页】</a>
+    <a th:href="@{/adm/findAllFileInfo(start = ${pageInfo.pageNum - 1 })}">【上一页】</a>
+    <a th:href="@{/adm/findAllFileInfo(start = ${pageInfo.pageNum + 1 })}">【下一页】</a>
+    <a th:href="@{/adm/findAllFileInfo(start=${pageInfo.pages})}">【尾页】</a>
+</div>
+<a href="/adm/toAdmMain">
+    <input type="button" value="返回主页面"/>
+</a>
+</body>
+</html>

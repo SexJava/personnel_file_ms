@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+</head>
+<body>
+<h1 th:text="'您好,管理员:'+${session.admInfo.admName}"></h1>
+<input type="button" value="普通用户信息管理" onclick="window.location.href='http://localhost:8080/adm/toUserInfoM'"/>
+<input type="button" value="招聘信息管理" onclick="window.location.href='http://localhost:8080/adm/toComInfoM'"/>
+<input type="button" value="培训信息管理" onclick="window.location.href='http://localhost:8080/adm/toTrainInfoM'"/>
+<input type="button" value="薪资管理" onclick="window.location.href='http://localhost:8080/adm/toUserSalM'"/>
+<input type="button" value="合同管理" onclick="window.location.href='http://localhost:8080/adm/toFileInfoM'"/>
+</body>
+</html>

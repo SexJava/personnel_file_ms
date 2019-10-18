@@ -28,9 +28,23 @@ public class admServiceImpl implements admService {
         }
         else if (role == 0){
             return userMapper.userLogin(name,pwd);
+
         }
         else {
             return null;
+        }
+    }
+
+    @Override
+    public int tranforAddUser(int role, String name, String pwd) {
+
+        if (role == 1){
+           return admMapper.admAdd(name,pwd,role);
+        }
+        else if (role == 0){
+            return userMapper.userAdd(name,pwd,role);
+        }else {
+            return 0;
         }
     }
 }

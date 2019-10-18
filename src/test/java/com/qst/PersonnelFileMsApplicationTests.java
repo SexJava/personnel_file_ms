@@ -13,4 +13,16 @@ public class PersonnelFileMsApplicationTests {
     public void contextLoads() {
     }
 
+    @Test
+    public void s(){
+        int data[] = new int[10];
+        for (int i =0 ; i<10; i++ ){
+            data[i] = i;
+        }
+        for (int i =0 ; i<10; i++ ){
+            System.out.println(data[i]);
+        }
+        int x = 9;
+        System.out.println(x/2);
+    }
 }

@@ -10,14 +10,7 @@ public class userInfo {
     private String userPwd;
     private Integer userRole;
     private Double userSal;
-
-    public Double getUserSal() {
-        return userSal;
-    }
-
-    public void setUserSal(Double userSal) {
-        this.userSal = userSal;
-    }
+    private Integer insId;
 
     @Override
     public String toString() {
@@ -26,7 +19,25 @@ public class userInfo {
                 ", userName='" + userName + '\'' +
                 ", userPwd='" + userPwd + '\'' +
                 ", userRole=" + userRole +
+                ", userSal=" + userSal +
+                ", insId=" + insId +
                 '}';
+    }
+
+    public Integer getInsId() {
+        return insId;
+    }
+
+    public void setInsId(Integer insId) {
+        this.insId = insId;
+    }
+
+    public Double getUserSal() {
+        return userSal;
+    }
+
+    public void setUserSal(Double userSal) {
+        this.userSal = userSal;
     }
 
     public Integer getUserId() {

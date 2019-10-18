@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1 style="text-align: center">用户列表</h1>
+<h1 style="text-align: center">详细</h1>
 <table align="center" border="1px">
     <tr>
         <td>userId</td>
@@ -14,28 +14,20 @@
         <td>userRole</td>
         <td>userSal</td>
         <td>insId</td>
-        <td>operate</td>
+        <td>投保信息</td>
 
     </tr>
-    <tr th:each="user : ${pageInfo.list}">
+    <tr th:each="user : ${all}">
         <td th:text="${user.userId}"></td>
         <td th:text="${user.userName}"></td>
         <td th:text="${user.userPwd}"></td>
         <td th:if="${user.userRole}==0" th:text="普通用户 "></td>
         <td th:text="${user.userSal}"></td>
         <td th:text="${user.insId}"></td>
-        <td>
-            <a th:href="@{/adm/toEditUserById(userId = ${user.userId})}">修改</a>
-            <a th:href="@{/adm/delUser(userId = ${user.userId})}">删除</a>
-        </td>
+        <td th:text="${user.userSal-insInfoById}<0?'工资充裕':'工资不足'"></td>
+
     </tr>
 </table>
-<div style="text-align: center; margin-top: 50px;">
-    <a th:href="@{/adm/findAll(start = 1)}">【首页】</a>
-    <a th:href="@{/adm/findAll(start = ${pageInfo.pageNum - 1 })}">【上一页】</a>
-    <a th:href="@{/adm/findAll(start = ${pageInfo.pageNum + 1 })}">【下一页】</a>
-    <a th:href="@{/adm/findAll(start=${pageInfo.pages})}">【尾页】</a>
-</div>
 <a href="/adm/toAdmMain">
     <input type="button" value="返回主页面"/>
 </a>

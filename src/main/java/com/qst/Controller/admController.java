@@ -2,14 +2,8 @@ package com.qst.Controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.qst.Bean.comInfo;
-import com.qst.Bean.fileInfo;
-import com.qst.Bean.trainInfo;
-import com.qst.Bean.userInfo;
-import com.qst.Mapper.comMapper;
-import com.qst.Mapper.fileMapper;
-import com.qst.Mapper.trainMapper;
-import com.qst.Mapper.userMapper;
+import com.qst.Bean.*;
+import com.qst.Mapper.*;
 import com.qst.Service.admService;
 
 
@@ -48,6 +42,10 @@ public class admController {
 
     @Resource
     private fileMapper fileMapper;
+
+
+    @Resource
+    private insMapper insMapper;
     //页面跳转到主页面
     @RequestMapping("/toAdmMain")
     public String toAdmMain(){
@@ -78,6 +76,12 @@ public class admController {
     public String toFileInfoM(){
         return "/fileInfoM/fileInfoM";
     }
+
+    //页面跳转到社保管理模块
+    @RequestMapping("/toInsInfoM")
+    public String toInsInfoM(){
+        return "/insInfoM/insInfoM";
+    }
     //页面跳转到添加页面
     @RequestMapping("/toAdd")
     public String toAdd(){
@@ -103,9 +107,11 @@ public class admController {
         PageHelper.startPage(start,size,"userId");
         List<userInfo> list = userMapper.findAll();
         PageInfo<userInfo> pageInfo = new PageInfo<>(list);
+
         model.addAttribute("pageInfo",pageInfo);
         return "/userInfoM/findAllUser";
     }
+
     //跳转到修改普通用户信息页面
 
     @RequestMapping("/toEditUserById")
@@ -319,4 +325,70 @@ public class admController {
         model.addAttribute("userFileInfo",userFileInfo);
         return "/fileInfoM/showFindUserFileInfo";
     }
+
+    //跳转到添加保险类别页面
+    @RequestMapping("/toAddInsInfo")
+    public String toAddInsInfo(){
+        return "/insInfoM/addInsInfo";
+    }
+    //查看保险类别
+    @RequestMapping("/findAllInsInfo")
+    public String findAllInsInfo(Model model, @RequestParam(value = "start",defaultValue = "0")int start,
+                                  @RequestParam(value = "size",defaultValue = "6")int size){
+        PageHelper.startPage(start,size,"insId");
+        List<insInfo> list = insMapper.findAllInsInfo();
+        PageInfo<insInfo> pageInfo = new PageInfo<>(list);
+        model.addAttribute("pageInfo",pageInfo);
+        return "/insInfoM/findAllInsInfo";
+    }
+    //添加保险类别
+    @RequestMapping("/addInsInfo")
+    public String addInsInfo(Integer insId,String insName,Double insPrice){
+        int i = insMapper.addInsInfo(insId, insName,insPrice);
+
+        return "redirect:/adm/findAllInsInfo";
+
+    }
+//    //跳转到用户投保页面
+//    @RequestMapping("/toAddInsForUser")
+//    public String toAddInsForUser(Integer insId,String insName,Model model){
+//        model.addAttribute("insId",insId);
+//        model.addAttribute("insName",insName);
+//
+//        return "/insInfoM/addInsForUser";
+//    }
+    //跳转到查找投保人页面
+    @RequestMapping("/toFindInsForUser")
+    public String toInsForUser(){
+        return "/insInfoM/findInsForUser";
+    }
+    //查找被投保人
+    @RequestMapping("/findInsForUser")
+    public String findInsForUser(Integer userId,Model model){
+        userInfo user = userMapper.findUserById(userId);
+        model.addAttribute("user",user);
+        return "/insInfoM/InsForUserPage";
+    }
+    //跳转到投保页面
+    @RequestMapping("/toAddInsForUser")
+    public String toAddInsForUser(Integer userId , Model model){
+        userInfo user = userMapper.findUserById(userId);
+        model.addAttribute("user",user);
+
+        return "/InsInfoM/InsForUser";
+    }
+    //添加投保
+    @RequestMapping("/InsForUser")
+    public String InsForUser(Integer userId,Integer insId,Model model){
+        System.out.println(userId);
+        System.out.println(insId);
+        int i = insMapper.InsForUser(userId, insId);
+        System.out.println(i);
+        List<userInfo> all = userMapper.findAll();
+        insInfo insInfoById = insMapper.findInsInfoById(insId);
+        model.addAttribute("all",all);
+        model.addAttribute("insInfoById",insInfoById.getInsPrice());
+        return "/insInfoM/userAndSalPage";
+    }
+
 }

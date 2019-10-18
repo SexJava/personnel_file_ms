@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>查找被投保人</h1>
+    <form action="/adm/findInsForUser" method="post">
+        用户编号:<input type="text" th:name="userId"/>
+        <input type="submit" value="查找"/>
+    </form>
+</body>
+</html>

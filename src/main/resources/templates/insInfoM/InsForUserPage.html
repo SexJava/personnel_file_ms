@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 style="text-align: center">投保人列表</h1>
+<table align="center" border="1px">
+    <tr>
+        <td>userId</td>
+        <td>userName</td>
+        <td>userSal</td>
+        <td>insId</td>
+        <td>opreate</td>
+
+
+    </tr>
+    <tr th:each="user : ${user}">
+
+        <td th:text="${user.userId}"></td>
+        <td th:text="${user.userName}"></td>
+        <td th:text="${user.userSal}"></td>
+        <td th:text="${user.insId}"></td>
+        <td>
+            <a th:href="@{/adm/toAddInsForUser(userId = ${user.userId})}">投保</a>
+        </td>
+
+    </tr>
+</table>
+<a href="/adm/toAdmMain">
+    <input type="button" value="返回主页面"/>
+</a>
+</body>
+</html>

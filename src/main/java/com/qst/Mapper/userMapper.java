@@ -13,7 +13,7 @@ import java.util.List;
 public interface userMapper {
     @Select("select * from userInfo where userName=#{name} and userPwd = #{pwd}")
     userInfo userLogin(@Param("name") String name, @Param("pwd") String pwd);
-    @Insert("insert into userInfo values (null,#{name},#{pwd},#{role})")
+    @Insert("insert into userInfo (userName,userPwd,userRole) values (#{name},#{pwd},#{role})")
     int userAdd(@Param("name") String name, @Param("pwd") String pwd, @Param("role") int role);
     @Select("select * from userInfo")
     List<userInfo> findAll();

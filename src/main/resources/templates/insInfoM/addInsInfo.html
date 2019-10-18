@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/adm/addInsInfo" method="post">
+    保险编号:<input type="text" th:name="insId"/>
+    保险名称:<input type="text" th:name="insName"/>
+    保险金额:<input type="text" th:name="insPrice"/>
+    <input type="submit" value="确认添加"/>
+</form>
+</body>
+</html>

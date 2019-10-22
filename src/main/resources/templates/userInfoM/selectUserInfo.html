@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 style="text-align: center">用户信息</h1>
+<table align="center" border="1px">
+    <tr>
+        <td>userId</td>
+        <td>userName</td>
+        <td>userPwd</td>
+        <td>userRole</td>
+        <td>userSal</td>
+        <td>insId</td>
+
+
+    </tr>
+    <tr th:each="user : ${user}">
+        <td th:text="${user.userId}"></td>
+        <td th:text="${user.userName}"></td>
+        <td th:text="${user.userPwd}"></td>
+        <td th:if="${user.userRole}==0" th:text="普通用户 "></td>
+        <td th:text="${user.userSal}"></td>
+        <td th:text="${user.insId}"></td>
+    </tr>
+</table>
+<a href="/user/toUserMain">
+    <input type="button" value="返回主页面"/>
+</a>
+</body>
+</html>

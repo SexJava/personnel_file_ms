@@ -165,7 +165,13 @@ public class admController {
         model.addAttribute("pageInfo",pageInfo);
         return "/comInfoM/findAllComInfo";
     }
-
+    //查看人才信息库
+    @RequestMapping("/findAllRencaiInfo")
+    public String findAllRencaiInfo(Model model){
+        List<rencaiInfo> rencaiInfo = comMapper.findAllRencaiInfo();
+        model.addAttribute("rencaiInfo",rencaiInfo);
+        return "/comInfoM/findAllRencaiInfo";
+    }
     //跳转到分页查询所有培训计划
     @RequestMapping("/findAllTrainInfo")
     public String findAllTrainInfo(Model model, @RequestParam(value = "start",defaultValue = "0")int start,

@@ -27,6 +27,9 @@ public interface userMapper {
     //修改薪资信息
     @Update("update userInfo set userSal = #{userSal} where userId = #{userId}")
     int updateUserSal(@Param("userId") Integer userId,@Param("userSal") Double userSal);
+    //投递简历
+    @Insert("insert into rencaiInfo (comId,userId,userName) values (#{comId},#{userId},#{userName})")
+    int rencaiAdd(@Param("comId")Integer comId,@Param("userId") Integer userId, @Param("userName") String userName);
 
 
 }

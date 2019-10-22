@@ -6,6 +6,9 @@
     <link rel="stylesheet" type="text/css" href="/static/bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
 </head>
 <body>
-<h1 th:utext="${userInfo.userName}"></h1>
+<h1 th:text="'您好,管理员:'+${session.userInfo.userName}"></h1>
+<input type="button" value="查看个人信息" onclick="window.location.href='http://localhost:8080/user/findUserInfoById'"/>
+<input type="button" value="查看招聘信息" onclick="window.location.href='http://localhost:8080/user/findComInfo'"/>
+
 </body>
 </html>
